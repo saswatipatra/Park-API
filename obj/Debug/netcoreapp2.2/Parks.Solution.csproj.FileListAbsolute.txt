@@ -1,0 +1,14 @@
+C:\Users\p403s\Desktop\Parks.Solution\bin\Debug\netcoreapp2.2\Parks.Solution.deps.json
+C:\Users\p403s\Desktop\Parks.Solution\bin\Debug\netcoreapp2.2\Parks.Solution.runtimeconfig.json
+C:\Users\p403s\Desktop\Parks.Solution\bin\Debug\netcoreapp2.2\Parks.Solution.runtimeconfig.dev.json
+C:\Users\p403s\Desktop\Parks.Solution\bin\Debug\netcoreapp2.2\Parks.Solution.dll
+C:\Users\p403s\Desktop\Parks.Solution\bin\Debug\netcoreapp2.2\Parks.Solution.pdb
+C:\Users\p403s\Desktop\Parks.Solution\obj\Debug\netcoreapp2.2\Parks.Solution.csprojAssemblyReference.cache
+C:\Users\p403s\Desktop\Parks.Solution\obj\Debug\netcoreapp2.2\Parks.Solution.csproj.CoreCompileInputs.cache
+C:\Users\p403s\Desktop\Parks.Solution\obj\Debug\netcoreapp2.2\Parks.Solution.RazorAssemblyInfo.cache
+C:\Users\p403s\Desktop\Parks.Solution\obj\Debug\netcoreapp2.2\Parks.Solution.RazorAssemblyInfo.cs
+C:\Users\p403s\Desktop\Parks.Solution\obj\Debug\netcoreapp2.2\Parks.Solution.AssemblyInfoInputs.cache
+C:\Users\p403s\Desktop\Parks.Solution\obj\Debug\netcoreapp2.2\Parks.Solution.AssemblyInfo.cs
+C:\Users\p403s\Desktop\Parks.Solution\obj\Debug\netcoreapp2.2\Parks.Solution.RazorTargetAssemblyInfo.cache
+C:\Users\p403s\Desktop\Parks.Solution\obj\Debug\netcoreapp2.2\Parks.Solution.dll
+C:\Users\p403s\Desktop\Parks.Solution\obj\Debug\netcoreapp2.2\Parks.Solution.pdb
