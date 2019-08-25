@@ -31,6 +31,7 @@ namespace Parks.Controllers
             var output = _db.States
                 .Take(_size)
                 .Include(states => states.NationalParks)
+                .Include(states => states.Reviews)
                 .ToList();
             return output;
         }
@@ -42,6 +43,7 @@ namespace Parks.Controllers
             _nextPage = _page < _totalPages ? _page + 1 : _totalPages;
             var output= _db.States
                 .Include(states => states.NationalParks)
+                .Include(states => states.Reviews)
                 .Skip((_nextPage - 1) * _size)
                 .Take(_size)
                 .ToList();
@@ -59,6 +61,7 @@ namespace Parks.Controllers
             _prevPage = _page > 1 ? _page - 1 : 1;
             var output= _db.States
                 .Include(states => states.NationalParks)
+                .Include(states => states.Reviews)
                 .Skip((_prevPage - 1) * _size)
                 .Take(_size)
                 .ToList();
@@ -83,6 +86,7 @@ namespace Parks.Controllers
         {
             return _db.States
                 .Include(states => states.NationalParks)
+                .Include(states => states.Reviews)
                 .FirstOrDefault(x => x.StateId == id);
         }
 
@@ -111,11 +115,6 @@ namespace Parks.Controllers
             return _db.States.Where(x => x.Country == country).ToList();
         }
 
-        // get most popular Parks States by overall rating 
-        [HttpGet ("popular"), ActionName("Get")]
-        public ActionResult<IEnumerable<State>> GetPopular()
-        {
-            return _db.States.Where(x=>x.AvgRating>3).ToList();
-        }
+        
     }
 }

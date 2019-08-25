@@ -18,28 +18,24 @@ namespace Parks.Controllers
         public ActionResult<IEnumerable<NationalPark>> Get()
         {
             return _db.NationalParks
-                // .Include(nationalPark => nationalPark.State)
+                .Include(nationalPark => nationalPark.Reviews)
                 .ToList();
         }
 
-        // POST api/NationalParks
-        [HttpPost]
-        public void Post([FromBody] NationalPark nationalPark)
+        // get most popular travel NationalParks by overall rating 
+        [HttpGet ("popular"), ActionName("Get")]
+        public ActionResult<IEnumerable<NationalPark>> GetPopular()
         {
-            _db.NationalParks.Add(nationalPark);
-            Console.WriteLine("NationalPark added");
-            var thisState = _db.States
-                .Include(state => state.NationalParks)
-                .FirstOrDefault(x => x.StateId == nationalPark.StateId);
-            thisState.GetAvgRating();
-            _db.SaveChanges();
+            return _db.NationalParks.Where(x=>x.AvgRating>3).ToList();
         }
 
         // GET api/NationalParks/1
         [HttpGet("{id}")]
         public ActionResult<NationalPark> Get(int id)
         {
-            return _db.NationalParks.FirstOrDefault(x => x.NationalParkId == id);
+            return _db.NationalParks
+            .Include(nationalParks => nationalParks.Reviews)
+            .FirstOrDefault(x => x.NationalParkId == id);
         }
 
         // PUT api/NationalParks/1

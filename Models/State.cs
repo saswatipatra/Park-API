@@ -13,26 +13,15 @@ namespace Parks.Models
         public string Country { get; set; }
         public string StateName { get; set; }
         public string City { get; set; }
-        public double AvgRating { get; set; }
         
-        public ICollection<NationalPark> NationalParks { get; set; }
+        public ICollection<NationalPark> NationalParks { get; set; } 
+        public ICollection<Review> Reviews { get; set; }
 
-        public void GetAvgRating()
-        {
-            Console.WriteLine("Getting average rating");
-            double sum = 0;
-            foreach (NationalPark nationalPark in NationalParks)
-            {
-                sum += nationalPark.Rating;
-                Console.WriteLine("Sum = " + sum);
-                Console.WriteLine("NationalParks list: " + NationalParks.Count);
-            }
-            AvgRating = sum / NationalParks.Count;
-        }
-
+        
         public State()
         {
             this.NationalParks = new HashSet<NationalPark>();
+            this.Reviews = new HashSet<Review>();
         }
     }
 }

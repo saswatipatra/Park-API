@@ -8,7 +8,7 @@ using Parks.Models;
 namespace Parks.Solution.Migrations
 {
     [DbContext(typeof(ParksContext))]
-    [Migration("20190823194821_Initial")]
+    [Migration("20190825075614_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,11 +23,9 @@ namespace Parks.Solution.Migrations
                     b.Property<int>("NationalParkId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("NationalParkNotes");
+                    b.Property<double>("AvgRating");
 
                     b.Property<string>("ParkName");
-
-                    b.Property<int>("Rating");
 
                     b.Property<int>("StateId");
 
@@ -38,12 +36,34 @@ namespace Parks.Solution.Migrations
                     b.ToTable("nationalPark");
                 });
 
+            modelBuilder.Entity("Parks.Models.Review", b =>
+                {
+                    b.Property<int>("ReviewId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("NationalParkId");
+
+                    b.Property<int>("Rating");
+
+                    b.Property<string>("ReviewText");
+
+                    b.Property<int>("StateId");
+
+                    b.Property<string>("UserName");
+
+                    b.HasKey("ReviewId");
+
+                    b.HasIndex("NationalParkId");
+
+                    b.HasIndex("StateId");
+
+                    b.ToTable("reviews");
+                });
+
             modelBuilder.Entity("Parks.Models.State", b =>
                 {
                     b.Property<int>("StateId")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<double>("AvgRating");
 
                     b.Property<string>("City");
 
@@ -60,6 +80,19 @@ namespace Parks.Solution.Migrations
                 {
                     b.HasOne("Parks.Models.State")
                         .WithMany("NationalParks")
+                        .HasForeignKey("StateId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Parks.Models.Review", b =>
+                {
+                    b.HasOne("Parks.Models.NationalPark")
+                        .WithMany("Reviews")
+                        .HasForeignKey("NationalParkId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Parks.Models.State")
+                        .WithMany("Reviews")
                         .HasForeignKey("StateId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
