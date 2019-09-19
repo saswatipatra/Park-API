@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
@@ -36,6 +35,17 @@ namespace Parks.Controllers
             return _db.NationalParks
             .Include(nationalParks => nationalParks.Reviews)
             .FirstOrDefault(x => x.NationalParkId == id);
+        }
+
+        // POST api/NationalParks
+        [HttpPost]
+        public void Post([FromBody] NationalPark nationalPark)
+        {
+            _db.NationalParks.Add(nationalPark);
+            var thisState= _db.States
+                .Include(state=>state.NationalParks)
+                .FirstOrDefault(x=>x.StateId==nationalPark.StateId);
+            _db.SaveChanges();
         }
 
         // PUT api/NationalParks/1

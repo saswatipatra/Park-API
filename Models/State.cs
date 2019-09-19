@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -15,13 +14,13 @@ namespace Parks.Models
         public string City { get; set; }
         
         public ICollection<NationalPark> NationalParks { get; set; } 
-        public ICollection<Review> Reviews { get; set; }
+        
 
         
         public State()
         {
             this.NationalParks = new HashSet<NationalPark>();
-            this.Reviews = new HashSet<Review>();
+           
         }
     }
 }
