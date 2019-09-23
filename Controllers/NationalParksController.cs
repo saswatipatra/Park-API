@@ -53,6 +53,7 @@ namespace Parks.Controllers
         public void Put(int id, [FromBody] NationalPark nationalPark)
         {
             nationalPark.NationalParkId = id;
+           
             _db.Entry(nationalPark).State = EntityState.Modified;
             _db.SaveChanges();
         }
