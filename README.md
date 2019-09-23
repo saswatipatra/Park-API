@@ -6,18 +6,42 @@
 
 ## Description
 
-On this web site, where Owner can store all the details about his emoloyee (stylist) and their respective client details. It's a one to many data base.
-### Specs
-| Spec | Input | Output |
-| :-------------     | :------------- | :------------- |
-| **Enter the stylist name** | Name: Suzie | Output: Suzie, as drowdown when client details will be added|
-| **Enter the client name** |Client Name: Pierre and Stylist Name: Suzie | Output: It will Store all the information about client and their stylers|
+On this webpage one can create national parks in different states and give review and check out other people reviews and average rating of a national park.
+
 
 ## Setup/Installation Requirements
-*_Clone this repository:_*
-*_Create a table call Client and Stylist in SQL Workbench and add it in the appsetting.json file_*
-*_Build distribution files: dotnet build_*
-*_Start the file: dotnet run_*
+
+* This application requires MySQL.
+
+1. Clone this repository:
+    ```
+    $ git clone https://github.com/saswatipatra/Park-API
+                https://github.com/saswatipatra/Park-MVC
+    ```
+2. Open the database context file (Park-API/Models/ParkContext.cs) and replace `password=epicodus` with a string containing your MySQL password (ex: `"abcd123"`).
+
+3. Log onto MySQL:
+    ```
+    $ mysql -u USERNAME -p PASSWORD
+    ```
+5. Navigate to the project directory (Park-API). Restore dependencies, update your local database, and run the API:
+    ```
+    $ dotnet restore
+    $ dotnet ef database update
+    $ dotnet run
+    ```
+7. The API is now up and running. For full schema and a sample request body for POST, navigate to the Swagger documentation at http://localhost:5001.
+
+## Using the API
+
+### **Basic CRUD**
+| Endpoint | HTTP Method | Description |
+| :------------- | :------------- | :------------- |
+| `api/NationalParks` | GET | Return all NationalParks |
+| `api/NationalParks/{id}` | GET | Returns a specific Park |
+| `api/NationalParks` | POST | Creates a new Park |
+| `api/NationalParks/{id}` | PUT | Edits a specific Park |
+| `api/NationalParks/{id}` | DELETE | Deletes a specific Park |
 
 
 ## Known Bugs
