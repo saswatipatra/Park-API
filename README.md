@@ -7,6 +7,7 @@
 ## Description
 
 On this webpage one can create national parks in different states and give review and check out other people reviews and average rating of a national park.
+This application has used pagination that helps to navigates differents pages (next/previous pages). 
 
 
 ## Setup/Installation Requirements
